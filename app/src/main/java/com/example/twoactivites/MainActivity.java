@@ -1,48 +1,45 @@
 package com.example.twoactivites;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.util.Log;
+import android.content.Intent;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-
-
-    private final static String LOG_TAG=MainActivity.class.getSimpleName();
-    private final static String EXTRA_MESSAGE ="com.example.android.twoactivitiescodingchallenge.extra.MESSAGE";
-    private  View paragraph;
-    private View article_heading;
+    private Button button1, button2;
+    private TextView text;
+    private int count;
+    public static final String EXTRA_MESSAGE =
+            "com.example.android.twoactivities.extra.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        button1 = findViewById(R.id.btn_score);
+        button2 = findViewById(R.id.btn_toast);
+
+        text = findViewById(R.id.show_count);
+
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                count++;
+                text.setText("" + count);
+            }
+        });
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                intent.putExtra(EXTRA_MESSAGE,  ""+count);
+                startActivity(intent);
+            }
+        });
+
     }
 
-    public void LaunchParaTwo(View view) {
-        Log.d(LOG_TAG,"Paragraph Two");
-        Intent intent = new Intent(this, SecondActivity.class);
-        paragraph =findViewById(R.id.article_text);
-        intent.putExtra(EXTRA_MESSAGE, (Parcelable) paragraph);
-        startActivity(intent);
-    }
-
-    public void LaunchParaOne(View view){
-        Log.d(LOG_TAG, "Paragraph One");
-        Intent intent = new Intent(this, SecondActivity.class);
-        paragraph =findViewById(R.id.article_text);
-        intent.putExtra(EXTRA_MESSAGE, (Parcelable) paragraph);
-        startActivity(intent);
-    }
-
-    public void LaunchParaThree(View view){
-        Log.d(LOG_TAG, "Paragraph Three");
-        Intent intent = new Intent(this, SecondActivity.class);
-        paragraph =findViewById(R.id.article_text);
-        intent.putExtra(EXTRA_MESSAGE,(Parcelable) paragraph);
-        startActivity(intent);
-    }
 }
