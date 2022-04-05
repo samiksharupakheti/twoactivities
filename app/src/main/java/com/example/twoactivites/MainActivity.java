@@ -3,46 +3,33 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-
-    private final static String LOG_TAG=MainActivity.class.getSimpleName();
-    private final static String EXTRA_MESSAGE ="com.example.android.twoactivitiescodingchallenge.extra.MESSAGE";
-    private  View paragraph;
-    private View article_heading;
+    public static final String EXTRA_MESSAGE = "SanjayDon";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
 
-    public void LaunchParaTwo(View view) {
-        Log.d(LOG_TAG,"Paragraph Two");
+
+    }
+    public void btn1(View view) {
         Intent intent = new Intent(this, SecondActivity.class);
-        paragraph =findViewById(R.id.article_text);
-        intent.putExtra(EXTRA_MESSAGE, (Parcelable) paragraph);
+        intent.putExtra(EXTRA_MESSAGE, "article1");
         startActivity(intent);
     }
-
-    public void LaunchParaOne(View view){
-        Log.d(LOG_TAG, "Paragraph One");
+    public void btn2(View view) {
         Intent intent = new Intent(this, SecondActivity.class);
-        paragraph =findViewById(R.id.article_text);
-        intent.putExtra(EXTRA_MESSAGE, (Parcelable) paragraph);
+        intent.putExtra(EXTRA_MESSAGE, "article2");
         startActivity(intent);
     }
-
-    public void LaunchParaThree(View view){
-        Log.d(LOG_TAG, "Paragraph Three");
+    public void btn3(View view) {
         Intent intent = new Intent(this, SecondActivity.class);
-        paragraph =findViewById(R.id.article_text);
-        intent.putExtra(EXTRA_MESSAGE,(Parcelable) paragraph);
+        intent.putExtra(EXTRA_MESSAGE, "article3");
         startActivity(intent);
     }
 }

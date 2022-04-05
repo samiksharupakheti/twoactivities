@@ -1,39 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SecondActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Button Activity"
+        android:textColor="@color/white"
+        android:background="@color/purple_200"></TextView>
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="wrap_content" >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/article_text"
+                android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/paragraph"
-                android:textSize="20sp"
-                tools:layout_editor_absoluteX="40dp"
-                tools:layout_editor_absoluteY="183dp" />
-
-
-
-
+                android:layout_marginTop="52dp"
+                android:text="TextView"
+                app:layout_constraintTop_toTopOf="parent"
+                />
         </LinearLayout>
-
-
-
     </ScrollView>
-
-
-
-
-
-</LinearLayout>
+</RelativeLayout>
